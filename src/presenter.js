@@ -1,15 +1,24 @@
-import sumar from "./sumador";
+import ejecutarSecuencia from "./sumador";
 
-const first = document.querySelector("#primer-numero");
-const second = document.querySelector("#segundo-numero");
-const form = document.querySelector("#sumar-form");
-const div = document.querySelector("#resultado-div");
+const comandosInput = document.querySelector("#comandos");
+const form = document.querySelector("#comandos-form");
+const resultadoDiv = document.querySelector("#resultado-div");
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  const firstNumber = Number.parseInt(first.value);
-  const secondNumber = Number.parseInt(second.value);
+  const comandos = comandosInput.value;
+  const [dimensiones, posicionInicial, secuencia] = comandos.split('/');
 
-  div.innerHTML = "<p>" + sumar(firstNumber, secondNumber) + "</p>";
+  const posicionFinal = ejecutarSecuencia(comandos);
+
+  if (posicionFinal === "Fuera de los límites") {
+    resultadoDiv.innerHTML = `<p>Fuera de los límites</p>`;
+  } else {
+    resultadoDiv.innerHTML = `
+      <p>Posición Inicial: ${posicionInicial}</p>
+      <p>Comandos: ${secuencia}</p>
+      <p>Posición Final: ${posicionFinal}</p>
+    `;
+  }
 });

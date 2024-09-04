@@ -1,14 +1,22 @@
+<!DOCTYPE html>
 <html>
+  <head>
+    <title>Controlador de Autitos</title>
+    <link rel="stylesheet" href="style.css">
+
+  </head>
   <body>
-    <h1>Sumador</h1>
-    <form id="sumar-form">
-      <label for="primer-numero">Primer número:</label>
-      <input type="number" id="primer-numero" />
-      <label for="segundo-numero">Segundo número:</label>
-      <input type="number" id="segundo-numero" />
-      <input type="submit" value="Sumar" id="sumar-button" />
+    <h1>Controlador de Autitos</h1>
+    <form id="comandos-form">
+      <label for="comandos">Comandos:</label>
+      <input type="text" id="comandos" placeholder="Ej: 5,5/1,2N/IAIAIAIAA" />
+      <button type="submit">Ejecutar</button>
     </form>
-    <div id="resultado-div"></div>
+    <div id="resultado-div">
+      <p>Posición Inicial: <span id="posicion-inicial"></span></p>
+      <p>Comandos: <span id="comandos-texto"></span></p>
+      <p>Posición Final: <span id="posicion-final"></span></p>
+    </div>
 
     <script type="module" src="./src/presenter.js"></script>
   </body>
